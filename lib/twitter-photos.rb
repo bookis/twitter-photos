@@ -41,8 +41,9 @@ class TwitterPhoto
   # @option options [true, false] :twitgoo true
   # 
   # @return [TwitterPhoto] collection.
-  # @param :username
+  # @param [String] username
     # Accepts any twitter username
+  # @param [Hash] exclude photo services (optional)
   def self.get_photos_by(username, options={})
     @pix = []
     hydra = Typhoeus::Hydra.new
