@@ -1,6 +1,6 @@
 = twitter-photos
 
-A simple gem to retrieve photos from Twitpic, yFrog, TweetPhoto, and TwitGoo using any twitter username
+[TwitterPhoto] A simple gem to retrieve photos from Twitpic, yFrog, TweetPhoto, and TwitGoo using any twitter username
 
 == Note on Patches/Pull Requests
  
