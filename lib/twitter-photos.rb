@@ -33,6 +33,15 @@ class TwitterPhoto
     found.sort_by {|x| x.date}
   end
   
+  # Delete all TwitterPhoto objects with the username of the given value.
+  # @example Delete all TwitterPhoto objects where the username == 'bookis'
+  #   TwitterPhoto.delete('bookis')
+  # @param [String] username
+  
+  def delete(username)
+    TwitterPhoto.find_by_username(username).each{|x| x=nil}
+  end
+  
   # Fetch photos from Twitpic, yFrog, Twitgoo, and TweetPhoto.
   # 
   # @example Find photos by @bookis only from yfrog and twitpic
@@ -49,7 +58,7 @@ class TwitterPhoto
   # @param [Hash] options
     # exclude photo services (optional)
   def self.get_photos_by(username, options={:twitpic => true, :yfrog => true, :tweetphoto => true, :twitgoo => true})
-    @pix = []
+    TwitterPhoto.delete(username)
     hydra = Typhoeus::Hydra.new
     
     twitpic_request  = Typhoeus::Request.new("#{TWITPIC_URL}/photos/#{username}", :timeout => 5000)
