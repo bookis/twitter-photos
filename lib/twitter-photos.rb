@@ -40,7 +40,7 @@ class TwitterPhoto
   # @option options [true, false] :yfrog default true
   # @option options [true, false] :twitgoo default true
   # 
-  # @return [TwitterPhoto] A collection of TwitterPhoto objects will be returned
+  # @return A collection of [TwitterPhoto] objects.
   # @param :username
   def self.get_photos_by(username, options={})
     @pix = []
