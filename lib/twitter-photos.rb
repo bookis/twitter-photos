@@ -31,14 +31,17 @@ class TwitterPhoto
   end
   
   # Fetch photos from Twitpic, yFrog, Twitgoo, and TweetPhoto.
+  # 
   # @example Find photo by bookis only from yfrog and twitpic
   #   TwitterPhoto.get_photos_by('bookis', :tweetphoto => false, :yfrog => true, :twitpic => true, :twitgoo => false)
+  # 
   # @option options [true, false] :tweetphoto default true
   # @option options [true, false] :twitpic default true
   # @option options [true, false] :yfrog default true
   # @option options [true, false] :twitgoo default true
+  # 
   # @return [TwitterPhoto] A collection of TwitterPhoto objects will be returned
-  @param :username
+  # @param :username
   def self.get_photos_by(username, options={})
     @pix = []
     hydra = Typhoeus::Hydra.new
