@@ -21,7 +21,10 @@ class TwitterPhoto
     @tweet = "No tweet for this photo." if @tweet.blank?
   end
   
-  # Find all TwitterPhoto objects with the username of the given value. Example: TwitterPhoto.find_by_username('bookis')
+  # Find all TwitterPhoto objects with the username of the given value.
+  # @example Find all TwitterPhoto objects where the username == 'bookis'
+  #   TwitterPhoto.find_by_username('bookis')
+  # @param [String] username
   def self.find_by_username(username)
     found = []
     ObjectSpace.each_object(TwitterPhoto) { |o|
@@ -43,7 +46,8 @@ class TwitterPhoto
   # @return [TwitterPhoto] collection.
   # @param [String] username
     # Accepts any twitter username
-  # @param [Hash] exclude photo services (optional)
+  # @param [Hash] options
+    # exclude photo services (optional)
   def self.get_photos_by(username, options={})
     @pix = []
     hydra = Typhoeus::Hydra.new
