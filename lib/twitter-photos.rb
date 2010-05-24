@@ -35,12 +35,12 @@ class TwitterPhoto
   # @example Find photo by bookis only from yfrog and twitpic
   #   TwitterPhoto.get_photos_by('bookis', :tweetphoto => false, :yfrog => true, :twitpic => true, :twitgoo => false)
   # 
-  # @option options [true, false] :tweetphoto default true
-  # @option options [true, false] :twitpic default true
-  # @option options [true, false] :yfrog default true
-  # @option options [true, false] :twitgoo default true
+  # @option options [true, false] :tweetphoto true
+  # @option options [true, false] :twitpic true
+  # @option options [true, false] :yfrog true
+  # @option options [true, false] :twitgoo true
   # 
-  # @return A collection of [TwitterPhoto] objects.
+  # @return [TwitterPhoto] collection.
   # @param :username
   def self.get_photos_by(username, options={})
     @pix = []
