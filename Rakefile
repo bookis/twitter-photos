@@ -6,13 +6,15 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "twitter-photos"
     gem.summary = %Q{Put in your username, get a bunch of photos}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.description = %Q{Allows you to use any twitter username to return a collection of objects of photo urls, with corresponding tweets, dates and thumbnails.}
     gem.email = "vegan.bookis@gmail.com"
     gem.homepage = "http://github.com/bookis/twitter-photos"
     gem.authors = ["bookis"]
-    gem.add_development_dependency "thoughtbot-shoulda"
+    gem.add_dependency 'nokogiri'
+    gem.add_dependency 'typhoeus'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
+  Jeweler::GemcutterTasks.new 
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end

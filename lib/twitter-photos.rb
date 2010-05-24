@@ -21,6 +21,7 @@ class TwitterPhoto
     @tweet = "No tweet for this photo." if @tweet.blank?
   end
   
+  # Find all TwitterPhoto objects with the username of the given value. Example: TwitterPhoto.find_by_username('bookis')
   def self.find_by_username(username)
     found = []
     ObjectSpace.each_object(TwitterPhoto) { |o|
@@ -29,6 +30,9 @@ class TwitterPhoto
     found.sort_by {|x| x.date}
   end
   
+  # Fetch photos from Twitpic, yFrog, Twitgoo, and TweetPhoto using the username of the twitter user. Returns an array of TwitterPhoto objects. 
+  # Takes options to exclude any of the photo sevices. Example: TwitterPhoto.get_photos_by('bookis', :tweetphoto => false, :yfrog => true, :twitpic => true, :twitgoo => false)
+  # All options default to true
   def self.get_photos_by(username, options={})
     @pix = []
     hydra = Typhoeus::Hydra.new
@@ -127,6 +131,8 @@ class TwitterPhoto
       
   end
 end
+
+private
 
 module TimeMod
   def time_ago_to_date(tweet_date)
